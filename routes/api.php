@@ -21,3 +21,5 @@ Route::post('/quote', 'QuoteController@store');
 Route::get('/quotes', 'QuoteController@index');
 Route::put('/quotes/{id}', 'QuoteController@update');
 Route::delete('/quotes/{id}', 'QuoteController@delete');
+Route::post('/users', 'UserController@signup');
+Route::post('/users/signin', 'UserController@signin');
