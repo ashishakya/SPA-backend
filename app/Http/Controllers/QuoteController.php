@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Quote;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Tymon\JWTAuth\JWTAuth;
 
 class QuoteController extends Controller
 {
@@ -16,6 +19,7 @@ class QuoteController extends Controller
         return response()->json(
             [
                 'quote' => $quote,
+                'user'=>\auth()->user()
             ],
             201
         );
@@ -48,6 +52,7 @@ class QuoteController extends Controller
         return response()->json(
             [
                 'quote' => $quote,
+                'user'  => \auth()->user(),
             ],
             200
         );

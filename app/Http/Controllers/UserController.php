@@ -6,7 +6,6 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Exceptions\JWTException;
-use Tymon\JWTAuth\JWTAuth;
 
 class UserController extends Controller
 {
@@ -72,6 +71,20 @@ class UserController extends Controller
             200
         );
     }
+
+    // no logout in jwt
+//    public function logout()
+//    {
+//        $this->guard()->logout(true);
+//
+//        return response()->json(
+//            [
+//                'status' => 'success',
+//                'msg'    => 'Logged out Successfully.',
+//            ],
+//            200
+//        );
+//    }
 
     private function guard()
     {

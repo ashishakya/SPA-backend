@@ -17,9 +17,10 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-Route::post('/quote', 'QuoteController@store');
-Route::get('/quotes', 'QuoteController@index');
+Route::post('/quote', 'QuoteController@store')->middleware('auth:api');
+Route::get('/quotes', 'QuoteController@index')->middleware('auth:api');
 Route::put('/quotes/{id}', 'QuoteController@update');
 Route::delete('/quotes/{id}', 'QuoteController@delete');
 Route::post('/users', 'UserController@signup');
 Route::post('/users/signin', 'UserController@signin');
+Route::post('/users/logout', 'UserController@logout')->middleware('auth:api');
